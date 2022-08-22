@@ -1,0 +1,135 @@
+#10809 알파벳찾기
+
+n = input()
+
+alpha = list('abcdefghijklmnopqrstuvwxyz')
+
+for i in alpha:
+    if i in n:
+        print(n.index(i), end = ' ')
+    else : 
+        print('-1', end = ' ')
+
+#2675 문자열 반복
+
+n = int(input())
+
+for i in range(n):
+    a,b = input().split()
+    for j in b:
+        print(j*int(a), end="")
+    print()
+    
+    
+#2798 블랙잭
+
+N,M = map(int,input().split())
+H = list(map(int,input().split()))
+res = 0
+
+for i in range(N):
+    for j in range(i+1,N):
+        for k in range(j+1,N):
+            if H[i]+H[j]+H[k] <= M:
+                res = max(res, H[i]+H[j]+H[k])
+            else:
+                continue
+print(res)
+
+
+# 2292 벌집
+
+n = int(input())
+r = 1
+
+while n>1:
+    n -= 6*r
+    r+=1
+print(r)
+
+
+#1712 손익분기점
+
+a,b,c = map(int,input().split())
+i = 1
+
+while 1:
+    if b>c:
+        print(-1)
+    if a + b*i < c*i:
+        print(i)
+        break
+    i+=1
+    
+    
+#7568 덩치
+
+import sys
+
+N = int(sys.stdin.readline())
+
+student_list = []
+
+for i in range(N):
+    weight, height = map(int, sys.stdin.readline().split())
+    student_list.append((weight, height))
+
+for j in student_list:
+    rank = 1
+    for k in student_list:
+        if j[0] < k[0] and j[1] < k[1]:
+            rank += 1
+
+    print(rank, end=' ')
+    
+    
+    
+#2750 수 정렬하기
+
+n = int(input())
+l = []
+
+for i in range (n):
+    a = int(input())
+    l.append(a)
+    
+l.sort()
+
+for j in range(n):
+    print(l[j])
+    
+    
+    
+#1978 소수 찾기
+
+n = int(input())
+
+l = list(map(int,input().split()))
+c = 0
+
+for i in l:
+    count = 0
+    for j in range (1,n):
+        if i % j == 0:
+            count += 1
+        if count == 1 and i == 1:
+            c += 1
+print(c)
+
+
+
+#13305 주유소
+
+N = int(input())
+km = list(map(int, input().split()))
+L = list(map(int, input().split()))
+
+result = 0
+
+m = L[0]
+
+for i in range(0,N-1):
+    if m > L[i]:
+        m = L[i]
+    result += m*km[i]
+print(result)
