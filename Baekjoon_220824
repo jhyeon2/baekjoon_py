@@ -1,0 +1,233 @@
+#1436 영화감독 숌
+
+import sys
+n = int(sys.stdin.readline())
+count = 0
+num = 1
+
+while True:
+    if '666' in str(num):
+        count += 1
+    if count == n:
+        print(num)
+        break
+    num += 1
+import sys
+from collections import deque
+
+input = sys.stdin.readline()
+
+n = int(input())
+
+
+
+#2775 부녀회장이 될테야
+
+test_case = int(input())
+
+for _ in range(n):
+    floor = int(input())
+    door = int(input())
+    
+    floor0 = [resident for resident in range(1, door+1)]
+    
+    for i in range(floor):
+        for j in range(1,door):
+            floor0[i] += floor0[i-1]
+            
+    print(floor0[-1])
+    
+    
+        
+#1152 단어의 개수
+
+sentence = input().strip().split()
+print(len(sentence))
+
+
+
+#1157 단어 공부
+
+word = input().upper()
+word_list = list(set(word))
+count_list = []
+
+for i in word_list:
+    cnt = word.count(i)
+    count_list.append(cnt)
+    
+if count_list.count(max(count_list)) > 1:
+    print('?')
+else :
+    max_index = count_list.index(max(count_list))
+    print(word_list[max_index])
+    
+    
+    
+#2908 상수
+
+a,b = map(str,input().split())
+
+a_list = list(a)
+b_list = list(b)
+
+A = int(a_list[2]+a_list[1]+a_list[0])
+B = int(b_list[2]+b_list[1]+b_list[0])
+
+print(max(A,B))
+
+
+
+#5622 다이얼
+
+Alphabet_list = ['ABC', 'DEF', 'GHI', 'JKL', 'MNO', 'PQRS', 'TUV', 'XWYZ']
+word = input()
+time = 0
+
+for i in Alphabet_list:
+    for j in i:
+        for k in word:
+            if j == k:
+                time += (Alphabet_list.index(i) + 3)
+print(time)
+
+
+
+#2941 크로아티아 알파벳
+
+alphabet = ["c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="]
+n = input().strip()
+
+for i in alphabet:
+    if i in n:
+        n = n.replace()
+#1316 그룹 단어 체커
+
+n = int(input())
+cnt = 0
+
+for _ in range(n):
+    x = list(input())
+    x_uni = list(set(x))
+    a = 0
+    for i in range(len(x_uni)):
+        for j in range(x.count(x_uni[i])):
+            if x[int(x.index(x_uni[i]))+j] != x_uni[i]:
+                a += 1
+    if a>0:
+        cnt += 1
+print(n - cnt)
+
+
+
+#10828 스택
+
+import sys
+
+input = sys.stdin.readline()
+
+n = int(input())
+li = []
+st = []
+
+for i in range(n):
+    st.append(input().split())
+    if st[0][0] == 'push':
+        li.append(st[0][1])
+    elif st[0][0] == 'pop':
+        if len(li) == 0:
+            print('-1')
+        else:
+            print(li[-1])
+            li.pop(-1)
+    elif st[0][0] == 'size':
+        print(len(li))
+    elif st[0][0] == 'empty':
+        if len(li) == 0:
+            print('1')
+        else:
+            print('0')
+    elif st[0][0] == 'top':
+        if len(li) == 0:
+            print('-1')
+        else:
+            print(li[-1])
+    st = []
+    
+    
+    
+#10773 제로
+
+K = int(input())
+li = []
+
+for i in range(K):
+    n = int(input())
+    if n == 0:
+        li.pop()
+    else:
+        li.append(n)
+    
+print(sum(li))
+
+
+
+#9012 괄호
+
+def check_st(s):
+    stack = []
+    for i in s:
+        if i == '(':
+            stack.append(i)
+        elif i == ')':
+            if stack:
+                stack.pop()
+            else:
+                stack.append(i)
+                return False
+    if len(stack) == 0:
+        return True
+    else:
+        return False
+    
+    
+n = int(input())
+
+for i in range(n):
+    n = list(input().strip())
+    a = check_st(n)
+    if a:
+        print('YES')
+    else:
+        print('NO')
+    
+    
+    
+#1874 스택 수열
+
+import sys
+input = sys.stdin.readline
+
+n = int(input())
+
+st1 = []
+st2 = []
+num = 1
+flag = 1
+
+for i in range(n):
+    a = int(input())
+    while num <= a:
+        st1.append(num)
+        st2.append('+')
+        num += 1
+    if st[-1] == n:
+        st1.pop()
+        st2.append('-')
+    else:
+        flag = 0
+if flag == 0:
+    print("NO")
+else:
+    for i in st2:
+        print(i)
