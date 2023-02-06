@@ -1,0 +1,21 @@
+#1193 분수찾기
+
+x = int(input()) # x를 입력 받음
+
+cnt = 0 
+i = 0
+while cnt < x:
+    i += 1            # line의 넘버
+    cnt += i          # 몇번째 숫자에서 over되는지
+    
+cnt -= i              # over된만큼 line의 넘버를 뺌
+tmp = x - cnt         # 남는 숫자의 개수 계산
+
+if i % 2 == 0:        # 짝수라인은 분자가 남는 숫자의 개수, 분모는 라인넘버+1 - tmp  / 홀수는 반대로
+    m = tmp
+    n = i - tmp + 1
+else:
+    m = i - tmp + 1
+    n = tmp
+    
+print(f'{m}/{n}')
