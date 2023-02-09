@@ -1,0 +1,7 @@
+N, k = map(int,input().split())
+lst = list(map(int,input().split()))
+
+lst.sort(reverse=True)
+print(lst[k-1])
+
+% print(sorted(list(map(int, input().split())))[::-1][k-1]) 로도 풀 수 있다.
