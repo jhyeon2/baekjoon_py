@@ -1,0 +1,11 @@
+sum = 0
+lst = []
+for i in range(5):
+    n = int(input())
+    lst.append(n)
+    sum += n
+lst.sort()    
+print(int(sum/5))
+print(lst[2])
+
+% 무난하게 풀었다!
