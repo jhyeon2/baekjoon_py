@@ -1,0 +1,16 @@
+import sys
+input = sys.stdin.readline
+N = int(input())
+arr = []
+for i in range(N):
+    command = input().rstrip()
+    if 'push' in command : 
+        a,num = command.split()
+        arr.append(num)
+    elif 'pop' in command :
+        if len(arr) == 0 : print(-1) 
+        else : print(arr.pop(0))
+    elif 'size' in command : print(len(arr))
+    elif 'empty' in command : print(1 if len(arr)==0 else 0)
+    elif 'front' in command : print(-1 if len(arr)==0 else arr[0])
+    elif 'back' in command : print(-1 if len(arr)==0 else arr[-1])
